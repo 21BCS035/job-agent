@@ -1,0 +1,58 @@
+Arpit Yadav
+
+GitHub: Arpit Yadav | LinkedIn: arpit-yadav | LeetCode: yadav-arpit
+Email: ar5136874yadav@gmail.com | Mobile: +91 9519844230
+
+Education
+Indian Institute of Information Technology Jabalpur, India
+B.Tech in Computer Science & Engineering December 2021 – May 2025
+• Relevant Coursework: Algorithms, Data Structures, Database Management System, Object-Oriented Programming,
+Operating System, Computer Networks, Software Engineering
+Technical Skills
+• Languages: C/C++, HTML, CSS, Java, JavaScript, TypeScript
+• Frameworks/Libraries: ReactJs , NodeJs, ExpressJs, Redux, NextJs, Spring Boot
+• Databases: SQL, MongoDB, GraphQL, PostgreSQL
+• Tools: Docker, AWS, Linux, Git/GitHub, GitHub Actions, Kubernetes
+Experience
+Simple Energy Pvt Ltd July 2025 – Present
+Software Engineer | Node.js, Next.js, GraphQL, TypeScript Banglore, India
+• Admin Dashboard: Developed backend (Node.js) and frontend (Next.js) for an admin dashboard with user, order, and
+refund management. Implemented search and pagination APIs, along with role-based admin user management
+(create/update/delete), ensuring secure and efficient data retrieval.
+• Jio SIM APIs integration: Built a secure system using Node.js and Next.js, integrated with Jio’s APIs to automate SIM
+operations (retrieve details, change states), reducing manual management tasks.
+Simple Energy Pvt Ltd Janruary 2025 – June 2025
+Software Engineering Intern | Node.js, Next.js, GraphQL, TypeScript Banglore, India
+• Vehicle Diagnostic System Integration: Integrated a Flask backend with a Next.js frontend for vehicle ECU diagnostics,
+enabling efficient firmware updates, calibration, and fault management—reducing update time by 30%.
+• Test Ride Module: Redesigned the Test Ride booking and confirmation UI in React/Next.js to match Figma specs,
+implementing responsive cards, floating labels, copy-to-clipboard, and robust error handling.
+• VIN whitelisting: Integrated MAPPLS APIs for device authentication and whitelisting using Next.js API routes.
+Amazon May 2024 – July 2024
+Software Engineering Intern | Java, Spring Boot, AWS, Bangalore, India
+• Implemented CloudAuth Client: Developed and integrated the CloudAuth Client for the SHIM
+(InCardsProcessorPlugin) Service to enhance authentication processes.
+• API Testing and Data Management: Tested APIs of the SHIM (InCardsProcessorPlugin) Service and updated test data
+on the S3 bucket to ensure data integrity and functionality..
+• Stress Testing: Conducted stress testing on the AWS CodePipeline using a TPS Generator for all APIs of the SHIM
+(InCardsProcessorPlugin) Service to evaluate and improve system performance under load.
+Fusion Project, IIIT Jabalpur Dec 2023 – April 2024
+Technical Contributor | Django, HTML, CSS, Angular, Bootstrap Jabalpur, India
+• Collaborated on a group project, demonstrating effective teamwork.
+• Managed the HR module, overseeing employee records, leave administration, concessions, and benefits. Coordinated tasks
+related to foreign service books, LTC, CPDA, and employee appraisals.
+• Utilized Django for backend development and HTML/CSS Bootstrap for frontend design to ensure user-friendly interfaces
+and seamless functionality.
+Projects
+Social Media Backend | Java, Spring Boot, PostgreSQL
+• Designed and implemented the backend for a social media application using Spring Boot, handling user authentication, photo
+posting, reel creation, and comment management.
+• Developed RESTful APIs to support real-time chat features and seamless interaction with the PostgreSQL database and
+conducted extensive testing of backend APIs using Postman to ensure reliable and efficient performance.
+Achievements
+• Solved 800+ coding questions across all coding platforms, including LeetCode and GFG.
+• CodeChef: 1550+ rating.
+• CodeForces: 1250+ rating (Pupil).
+• Achieved Global Rank 3 in CodeChef Starters 156.
+• Contributed to FusionIIIT open-source project, enhancing HR module features.
+• Selected in HackOn with Amazon, advanced to round 3 among the top 100 teams out of 12,000+ teams.
