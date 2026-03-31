@@ -3,25 +3,40 @@ import { llm } from "../utils/llm.js";
 
 export async function parseJobDescription(text: string) {
   const prompt = `
-Extract the following from the job description:
-- Role
-- Required skills
-- Experience
+You are a strict JSON generator.
+
+Extract:
+- company_name
+- role
+- required_skills (array)
+- responsibilities (short summary)
+
+IMPORTANT:
+- Return ONLY raw JSON
+- NO markdown
+- NO backticks
+- NO explanation
 
 Job Description:
 ${text}
-
-Return in JSON format.
 `;
 
   const response = await llm.invoke(prompt);
+  let content = response.content as string;
 
-  const content = response.content;
-  if (typeof content === "string") {
-    return content;
+  content = content.replace(/```json/g, "").replace(/```/g, "").trim();
+
+  console.log("parser response is : ",response)
+
+  try {
+    return JSON.parse(content);
+  } catch (e) {
+    console.log("❌ Parser failed. Raw output:\n", content);
+        return {
+      company_name: "Unknown",
+      role: "Unknown",
+      required_skills: [],
+      responsibilities: "",
+    };
   }
-
-  return content
-    .map((block) => ("text" in block ? block.text : ""))
-    .join("\n");
 }

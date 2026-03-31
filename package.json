@@ -14,8 +14,11 @@
     "@langchain/core": "^1.1.36",
     "@langchain/langgraph": "^1.2.6",
     "@langchain/openai": "^1.3.1",
+    "axios": "^1.14.0",
+    "cheerio": "^1.2.0",
     "dotenv": "^17.3.1",
     "langchain": "^1.2.37",
+    "nodemailer": "^8.0.4",
     "openai": "^6.33.0",
     "playwright": "^1.58.2",
     "zod": "^4.3.6"

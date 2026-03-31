@@ -5,7 +5,7 @@ async function main() {
   const app = createGraph();
 
   const result = await app.invoke({
-    jobUrl: "https://careers.ibm.com/en_US/careers/JobDetail?jobId=74371&source=SN_LinkedIn",
+    jobUrl: "https://apply.careers.microsoft.com/careers/job/1970393556754343?utm_source=linkedin&domain=microsoft.com&src=LinkedIn",
   });
 
   console.log("\n✅ FINAL OUTPUT:\n");
