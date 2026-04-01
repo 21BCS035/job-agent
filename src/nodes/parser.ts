@@ -26,8 +26,6 @@ ${text}
 
   content = content.replace(/```json/g, "").replace(/```/g, "").trim();
 
-  console.log("parser response is : ",response)
-
   try {
     return JSON.parse(content);
   } catch (e) {
