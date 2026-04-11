@@ -12,7 +12,6 @@ const jobs = [
 ];
 
 async function main() {
-  const app = createGraph();
 
   for (const jobUrl of jobs) {
     try {
