@@ -1,5 +1,6 @@
 //Convert raw text → structured data
 import { llm } from "../utils/llm.js";
+import { logger } from "../utils/logger.js";
 
 export async function parseJobDescription(text: string) {
   const prompt = `
@@ -29,7 +30,7 @@ ${text}
   try {
     return JSON.parse(content);
   } catch (e) {
-    console.log("❌ Parser failed. Raw output:\n", content);
+    logger.error({ content }, "❌ Parser failed. Raw output");
         return {
       company_name: "Unknown",
       role: "Unknown",

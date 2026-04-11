@@ -1,8 +1,9 @@
 import type { AgentState } from "../graph/state.js";
 import { llm } from "../utils/llm.js";
+import { logger } from "../utils/logger.js";
 
 export async function decisionNode(state: AgentState): Promise<AgentState> {
-  console.log("🧠 Deciding whether to scrape...");
+  logger.info("🧠 Deciding whether to scrape...");
 
   const prompt = `
 You are an AI agent.
@@ -27,7 +28,7 @@ Return ONLY JSON:
     const parsed = JSON.parse(response.content as string);
     shouldScrape = parsed.shouldScrape;
   } catch {
-    console.log("⚠️ Defaulting to scrape");
+    logger.error("⚠️ Defaulting to scrape");
   }
 
   return {

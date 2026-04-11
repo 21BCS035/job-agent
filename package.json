@@ -20,6 +20,7 @@
     "langchain": "^1.2.37",
     "nodemailer": "^8.0.4",
     "openai": "^6.33.0",
+    "pino": "^10.3.1",
     "playwright": "^1.58.2",
     "zod": "^4.3.6"
   },

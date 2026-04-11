@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import { logger } from "../utils/logger.js";
 
 export async function scrapeJob(url: string) {
   const browser = await chromium.launch({ headless: true });
@@ -41,7 +42,7 @@ export async function scrapeJob(url: string) {
     return content;
 
   } catch (error) {
-    console.error("Scraping failed:", error);
+    logger.error({error},"Scraping failed:");
     throw error;
   } finally {
     await browser.close();

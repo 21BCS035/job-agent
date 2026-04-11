@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
+import { logger } from "../utils/logger.js";
 
 export async function getCompanyInfo(companyName: string) {
   try {
@@ -18,7 +19,7 @@ export async function getCompanyInfo(companyName: string) {
 
     return description;
   } catch (error) {
-    console.log("⚠️ Company research failed");
+    logger.error("⚠️ Company research failed");
     return "";
   }
 }

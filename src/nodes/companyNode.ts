@@ -1,8 +1,9 @@
 import type { AgentState } from "../graph/state.js";
 import { getCompanyInfo } from "../tools/companyResearch.js";
+import { logger } from "../utils/logger.js";
 
 export async function companyNode(state: AgentState): Promise<AgentState> {
-  console.log("🏢 Researching company...");
+  logger.info("🏢 Researching company...");
 
   const companyName = state.parsedJD?.company_name || "";
 

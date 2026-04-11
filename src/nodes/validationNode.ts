@@ -1,8 +1,9 @@
 import type { AgentState } from "../graph/state.js";
 import { llm } from "../utils/llm.js";
+import { logger } from "../utils/logger.js";
 
 export async function validationNode(state: AgentState): Promise<AgentState> {
-  console.log("🔍 Validating job description...");
+  logger.info("🔍 Validating job description...");
 
   const prompt = `
 Check if the following text is a valid job description.

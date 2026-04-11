@@ -1,8 +1,9 @@
 import type { AgentState } from "../graph/state.js";
 import { llm } from "../utils/llm.js";
+import { logger } from "../utils/logger.js";
 
 export async function skillMatchNode(state: AgentState): Promise<AgentState> {
-  console.log("🎯 Matching skills...");
+  logger.info("🎯 Matching skills...");
 
   const prompt = `
 Compare the job skills and resume.

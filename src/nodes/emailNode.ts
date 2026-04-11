@@ -1,8 +1,9 @@
 import type { AgentState } from "../graph/state.js";
 import { sendEmail } from "../tools/emailSender.js";
+import { logger } from "../utils/logger.js";
 
 export async function emailNode(state: AgentState): Promise<AgentState> {
-  console.log("📧 Sending email...");
+  logger.info("📧 Sending email...");
 
   await sendEmail(
     "yadavarp2003@gmail.com",
