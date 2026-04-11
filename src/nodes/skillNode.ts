@@ -1,5 +1,6 @@
 import type { AgentState } from "../graph/state.js";
 import { llm } from "../utils/llm.js";
+import { safeLLM } from "../utils/llmWrapper.js";
 import { logger } from "../utils/logger.js";
 
 export async function skillMatchNode(state: AgentState): Promise<AgentState> {
@@ -20,7 +21,7 @@ Return top 3 matching skills in JSON:
 }
 `;
 
-  const response = await llm.invoke(prompt);
+  const response = await safeLLM(prompt);
 
   let matched = [];
 

@@ -1,4 +1,5 @@
 import { llm } from "../utils/llm.js";
+import { safeLLM } from "../utils/llmWrapper.js";
 
 export async function generateEmail(parsedJD: any, resume: string): Promise<string> {
   const prompt = `
@@ -34,7 +35,7 @@ ${resume}
 Make it feel like the candidate truly understands the company.
 `;
 
-  const response = await llm.invoke(prompt);
+  const response = await safeLLM(prompt);
 
   const content = response.content;
   if (typeof content === "string") {

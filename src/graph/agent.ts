@@ -11,6 +11,7 @@ import { skillMatchNode } from "../nodes/skillNode.js";
 import { companyNode } from "../nodes/companyNode.js";
 import { sanityNode } from "../nodes/sanityNode.js";
 import { emailNode } from "../nodes/emailNode.js";
+import { errorNode } from "../nodes/errorNode.js";
 
 export function createGraph() {
   const graph = new StateGraph(AgentStateAnnotation)
@@ -24,6 +25,7 @@ export function createGraph() {
     .addNode("generator", generatorNode)
     .addNode("validation", validationNode)
     .addNode("emails", emailNode)
+    .addNode("error", errorNode)
     .addEdge(START, "decision")
     .addConditionalEdges("decision", (state) => {
     if (state.shouldScrape) return "scraper";

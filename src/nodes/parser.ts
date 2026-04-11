@@ -1,5 +1,6 @@
 //Convert raw text → structured data
 import { llm } from "../utils/llm.js";
+import { safeLLM } from "../utils/llmWrapper.js";
 import { logger } from "../utils/logger.js";
 
 export async function parseJobDescription(text: string) {
@@ -22,7 +23,7 @@ Job Description:
 ${text}
 `;
 
-  const response = await llm.invoke(prompt);
+  const response = await safeLLM(prompt);
   let content = response.content as string;
 
   content = content.replace(/```json/g, "").replace(/```/g, "").trim();
