@@ -14,6 +14,9 @@ export const AgentStateAnnotation = Annotation.Root({
   resume:   Annotation<string>(),
   email:    Annotation<string>(),
   shouldScrape: Annotation<boolean>(),
+  finalReceiverEmail: Annotation<string | undefined>(),
+  receiverEmail:      Annotation<string | undefined>(),
+  isEmailValid:      Annotation<boolean | undefined>(),
 });
 
 export type AgentState = typeof AgentStateAnnotation.State;

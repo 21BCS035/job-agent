@@ -3,7 +3,10 @@ import { jobInputSchema } from "../validation/input.js";
 
 const app = createGraph();
 
-export async function processJob(input: { jobUrl: string }) {
+export async function processJob(input: { 
+    jobUrl: string;
+    receiverEmail?: string;
+}) {
   jobInputSchema.parse( input );
 
   const result = await app.invoke( input );
@@ -12,5 +15,7 @@ export async function processJob(input: { jobUrl: string }) {
     email: result.email,
     company: result.parsedJD?.company_name,
     role: result.parsedJD?.role,
+    finalReceiverEmail: result.finalReceiverEmail,
+    isEmailValid: result.isEmailValid
   };
 }

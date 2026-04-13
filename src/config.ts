@@ -1,4 +1,4 @@
 export const config = {
-  SEND_EMAIL: true,
+  SEND_EMAIL: false,
   MAX_RETRIES: 3,
 };

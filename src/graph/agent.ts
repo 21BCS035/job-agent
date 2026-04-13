@@ -12,6 +12,8 @@ import { companyNode } from "../nodes/companyNode.js";
 import { sanityNode } from "../nodes/sanityNode.js";
 import { emailNode } from "../nodes/emailNode.js";
 import { errorNode } from "../nodes/errorNode.js";
+import { emailDecisionNode } from "../nodes/emailDecisionNode.js";
+import { emailVerifyNode } from "../nodes/emailVerifyNode.js";
 
 export function createGraph() {
   const graph = new StateGraph(AgentStateAnnotation)
@@ -26,6 +28,8 @@ export function createGraph() {
     .addNode("validation", validationNode)
     .addNode("emails", emailNode)
     .addNode("error", errorNode)
+    .addNode("emailDecision", emailDecisionNode)
+    .addNode("emailVerify", emailVerifyNode)
     .addEdge(START, "decision")
     .addConditionalEdges("decision", (state) => {
     if (state.shouldScrape) return "scraper";
@@ -38,7 +42,12 @@ export function createGraph() {
     .addEdge("companyResearch",  "rag")
     .addEdge("rag", "skillMatch")
     .addEdge("skillMatch",  "generator")
-    .addEdge("generator", "emails")
+    .addEdge("generator", "emailDecision")
+    .addEdge("emailDecision", "emailVerify")
+    .addConditionalEdges("emailVerify", (state) => {
+    if (state.isEmailValid) return "emails";
+    return "END";
+     })
     .addEdge("emails", END);
 
   return graph.compile();

@@ -14,4 +14,5 @@ const urlSchema = z.string().refine(
 
 export const jobInputSchema = z.object({
   jobUrl: urlSchema,
+  receiverEmail: z.email().optional(),
 });

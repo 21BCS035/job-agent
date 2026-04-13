@@ -1,5 +1,6 @@
 import type { AgentState } from "../graph/state.js";
 import { llm } from "../utils/llm.js";
+import { safeLLM } from "../utils/llmWrapper.js";
 import { logger } from "../utils/logger.js";
 
 export async function validationNode(state: AgentState): Promise<AgentState> {
@@ -17,7 +18,7 @@ Return JSON:
 }
 `;
 
-  const response = await llm.invoke(prompt);
+  const response = await safeLLM(prompt);
 
   let isValid = true;
 

@@ -14,8 +14,21 @@ app.get("/health", (req, res) => {
 
 app.post("/apply", async (req, res) => {
   try {
-    const { jobUrl } = req.body;
-    const result = await processJob({jobUrl});
+    const { jobUrl, receiverEmail } = req.body;
+    const result = await processJob({jobUrl, receiverEmail});
+    if (!result.finalReceiverEmail) {
+      return res.status(400).json({
+        success: false,
+        message: "No email found. Please provide receiverEmail.",
+      });
+    }
+    if (!result.isEmailValid) {
+        return res.status(400).json({
+            success: false,
+            message: "Email found is invalid. Please provide a valid email.",
+            emailTried: result.finalReceiverEmail,
+        });
+        }
     res.json({
       success: true,
       data: result,

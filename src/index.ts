@@ -16,10 +16,11 @@ async function main() {
   for (const jobUrl of jobs) {
     try {
       logger.info(`\n🚀 Processing: ${jobUrl}`);
+      const receiverEmail = "21bcs035@iiitdmj.ac.in"
 
-      const input = jobInputSchema.parse({ jobUrl });
+      // const input = jobInputSchema.parse({ jobUrl,receiverEmail});
 
-      const result = await processJob(input);
+      const result = await processJob({ jobUrl,receiverEmail});
 
       logger.info("✅ Email Generated:");
       logger.info(result.email);

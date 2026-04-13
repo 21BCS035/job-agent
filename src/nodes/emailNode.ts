@@ -1,20 +1,27 @@
-import { config } from "../config.js";
 import type { AgentState } from "../graph/state.js";
 import { sendEmail } from "../tools/emailSender.js";
-import { logger } from "../utils/logger.js";
+import { config } from "../config.js";
 
 export async function emailNode(state: AgentState): Promise<AgentState> {
+  console.log("📧 Preparing to send email...");
+
+  if (!state.finalReceiverEmail) {
+    console.log("❗ No receiver email available.");
+    throw new Error("Receiver email missing");
+  }
+
   if (!config.SEND_EMAIL) {
-  logger.info("📧 Skipping email (disabled)");
-  return state;
-}
-  logger.info("📧 Sending email...");
+    console.log("📧 Skipping email (disabled)");
+    return state;
+  }
 
   await sendEmail(
-    "21bcs035@iiitdmj.ac.in",
+    state.finalReceiverEmail,
     "Job Application",
     state.email || ""
   );
+
+  console.log("✅ Email sent to:", state.finalReceiverEmail);
 
   return state;
 }
