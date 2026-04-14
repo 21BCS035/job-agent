@@ -16,6 +16,7 @@ export async function processJob(input: {
     company: result.parsedJD?.company_name,
     role: result.parsedJD?.role,
     finalReceiverEmail: result.finalReceiverEmail,
-    isEmailValid: result.isEmailValid
+    isEmailValid: result.isEmailValid,
+    parsedJD: result.parsedJD
   };
 }

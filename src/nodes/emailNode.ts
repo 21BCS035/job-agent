@@ -6,8 +6,8 @@ export async function emailNode(state: AgentState): Promise<AgentState> {
   console.log("📧 Preparing to send email...");
 
   if (!state.finalReceiverEmail) {
-    console.log("❗ No receiver email available.");
-    throw new Error("Receiver email missing");
+    console.log("⚠️ Skipping email - no valid receiver");
+    return state;
   }
 
   if (!config.SEND_EMAIL) {
@@ -17,8 +17,8 @@ export async function emailNode(state: AgentState): Promise<AgentState> {
 
   await sendEmail(
     state.finalReceiverEmail,
-    "Job Application",
-    state.email || ""
+    state.email?.subject || "Job Application",
+    state.email?.body || ""
   );
 
   console.log("✅ Email sent to:", state.finalReceiverEmail);
