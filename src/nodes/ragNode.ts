@@ -4,7 +4,8 @@ import { getResumeContext } from "./rag.js";
 
 export async function ragNode(state: AgentState): Promise<AgentState> {
   logger.info("📄 Loading resume...");
-  const resume = getResumeContext();
+
+  const resume = await getResumeContext(state.resumePath);
 
   return {
     ...state,

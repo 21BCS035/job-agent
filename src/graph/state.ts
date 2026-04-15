@@ -12,6 +12,8 @@ export const AgentStateAnnotation = Annotation.Root({
   company_info?: string;
 }>(),
   resume:   Annotation<string>(),
+  resumePath: Annotation<string>(),
+  resumeFileName: Annotation<string | undefined>(),
   email:    Annotation<{
     subject:     string;
     body:        string;

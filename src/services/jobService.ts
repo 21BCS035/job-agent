@@ -6,10 +6,12 @@ const app = createGraph();
 export async function processJob(input: { 
     jobUrl: string;
     receiverEmail?: string;
+    resumePath?: string;
+    resumeFileName?: string;
 }) {
-  jobInputSchema.parse( input );
+  jobInputSchema.parse(input);
 
-  const result = await app.invoke( input );
+  const result = await app.invoke(input);
 
   return {
     email: result.email,
@@ -17,6 +19,8 @@ export async function processJob(input: {
     role: result.parsedJD?.role,
     finalReceiverEmail: result.finalReceiverEmail,
     isEmailValid: result.isEmailValid,
-    parsedJD: result.parsedJD
+    parsedJD: result.parsedJD,
+    resumePath: result.resumePath,
+    resumeFileName: result.resumeFileName
   };
 }

@@ -18,7 +18,9 @@ export async function emailNode(state: AgentState): Promise<AgentState> {
   await sendEmail(
     state.finalReceiverEmail,
     state.email?.subject || "Job Application",
-    state.email?.body || ""
+    state.email?.body || "",
+    state.resumePath,
+    state.resumeFileName
   );
 
   console.log("✅ Email sent to:", state.finalReceiverEmail);
