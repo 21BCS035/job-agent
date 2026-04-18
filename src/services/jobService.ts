@@ -8,6 +8,7 @@ export async function processJob(input: {
     receiverEmail?: string;
     resumePath?: string;
     resumeFileName?: string;
+    sendEmail: boolean;
 }) {
   jobInputSchema.parse(input);
 
@@ -21,6 +22,7 @@ export async function processJob(input: {
     isEmailValid: result.isEmailValid,
     parsedJD: result.parsedJD,
     resumePath: result.resumePath,
-    resumeFileName: result.resumeFileName
+    resumeFileName: result.resumeFileName,
+    sendEmail: result.sendEmail,
   };
 }

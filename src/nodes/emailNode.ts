@@ -1,6 +1,5 @@
 import type { AgentState } from "../graph/state.js";
 import { sendEmail } from "../tools/emailSender.js";
-import { config } from "../config.js";
 
 export async function emailNode(state: AgentState): Promise<AgentState> {
   console.log("📧 Preparing to send email...");
@@ -10,8 +9,8 @@ export async function emailNode(state: AgentState): Promise<AgentState> {
     return state;
   }
 
-  if (!config.SEND_EMAIL) {
-    console.log("📧 Skipping email (disabled)");
+  if (!state.sendEmail) {
+    console.log("📧 Skipping email (sendEmail is false)");
     return state;
   }
 

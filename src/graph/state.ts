@@ -23,6 +23,7 @@ export const AgentStateAnnotation = Annotation.Root({
   finalReceiverEmail: Annotation<string | undefined>(),
   receiverEmail:      Annotation<string | undefined>(),
   isEmailValid:      Annotation<boolean | undefined>(),
+  sendEmail: Annotation<boolean>(),
 });
 
 export type AgentState = typeof AgentStateAnnotation.State;

@@ -16,7 +16,10 @@ app.get("/health", (req, res) => {
 
 app.post("/apply", upload.single("resume"), async (req, res) => {
   try {
-    const { jobUrl, receiverEmail } = req.body;
+    const { jobUrl, receiverEmail, sendEmail: sendEmailRaw } = req.body;
+    const sendEmail =
+      sendEmailRaw === true ||
+      String(sendEmailRaw).toLowerCase() === "true";
     const resumePath = req.file?.path
       ? path.resolve(req.file.path)
       : undefined;
@@ -25,6 +28,7 @@ app.post("/apply", upload.single("resume"), async (req, res) => {
     const result = await processJob({
       jobUrl,
       receiverEmail,
+      sendEmail,
       ...(resumePath && { resumePath }),
       ...(resumeFileName && { resumeFileName }),
     });

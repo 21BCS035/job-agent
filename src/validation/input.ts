@@ -5,4 +5,5 @@ export const jobInputSchema = z.object({
   receiverEmail: z.email().optional(),
   resumePath: z.string().optional(),
   resumeFileName: z.string().optional(),
+  sendEmail: z.boolean(),
 });
