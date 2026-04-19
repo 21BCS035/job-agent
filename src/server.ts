@@ -6,6 +6,12 @@ import "dotenv/config";
 import { processJob } from "./services/jobService.js";
 import { upload } from "./middleware/upload.js";
 
+if (!process.env.OPENAI_API_KEY?.trim()) {
+  console.warn(
+    "⚠️ OPENAI_API_KEY is not set"
+  );
+}
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -63,6 +69,7 @@ app.post("/apply", upload.single("resume"), async (req, res) => {
 }
 });
 
-app.listen(3000, () => {
-  console.log("🚀 Server running on port 3000");
+const PORT = Number(process.env.PORT) || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server listening on 0.0.0.0:${PORT}`);
 });
