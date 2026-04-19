@@ -4,6 +4,10 @@ export async function errorNode(state: AgentState): Promise<AgentState> {
   console.log("⚠️ Handling error safely...");
   return {
     ...state,
-    email: "Something went wrong. Please try again.",
+    email: {
+      subject: "Application processing failed",
+      body: "Something went wrong. Please try again.",
+      coverLetter: undefined,
+    },
   };
 }
