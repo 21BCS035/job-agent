@@ -1,6 +1,10 @@
 import { safeLLM } from "../utils/llmWrapper.js";
 
-export async function generateEmail(parsedJD: any, resume: string) {
+export async function generateEmail(
+  parsedJD: any,
+  resumeRetrieved: string,
+  resumeFull: string
+) {
 const prompt = `
 You are an expert job application assistant.
 
@@ -32,6 +36,12 @@ STRICT RULES:
 - DO NOT include subject line in body
 - NO placeholders like [Your Name]
 - Make it feel personal and specific to the company
+- FACTUAL SAFETY:
+  - Use FULL RESUME as source of truth for timeline/degree status.
+  - Never say "currently pursuing" unless FULL RESUME explicitly uses words like "present", "currently", or "pursuing" for that degree.
+  - If FULL RESUME indicates a finished degree year/range in the past, refer to it as completed.
+  - Mention ALL internship experiences found in FULL RESUME at least once (company + role in concise form).
+  - If data is missing, omit it; do not invent details.
 
 FORMAT:
 {
@@ -49,8 +59,11 @@ Responsibilities: ${parsedJD.responsibilities ?? "Not specified"}
 Company Info:
 ${parsedJD.company_info ?? "Not available"}
 
-Candidate Resume:
-${resume}
+FULL RESUME (authoritative facts for education, timeline, and all internships):
+${resumeFull}
+
+RETRIEVED RESUME EXCERPTS (most relevant to this role):
+${resumeRetrieved}
 
 Make it feel like the candidate truly understands the company and the role.
 `;

@@ -11,7 +11,10 @@ export const AgentStateAnnotation = Annotation.Root({
   matched_skills?:  string[];
   company_info?: string;
 }>(),
-  resume:   Annotation<string>(),
+  /** RAG-selected excerpts for email generation (narrow, job-relevant). */
+  resume: Annotation<string>(),
+  /** Full résumé text (for skill matching and fallback). */
+  resumeFull: Annotation<string | undefined>(),
   resumePath: Annotation<string>(),
   resumeFileName: Annotation<string | undefined>(),
   email:    Annotation<{

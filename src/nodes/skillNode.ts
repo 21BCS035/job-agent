@@ -13,7 +13,7 @@ Job Skills:
 ${state.parsedJD?.required_skills}
 
 Resume:
-${state.resume}
+${state.resumeFull ?? state.resume ?? ""}
 
 Return top 3 matching skills in JSON:
 {

@@ -4,7 +4,11 @@ import { generateEmail } from "./generator.js";
 
 export async function generatorNode(state: AgentState): Promise<AgentState> {
   logger.info("✉️ Generating email...");
-  const email = await generateEmail(state.parsedJD!, state.resume!);
+  const email = await generateEmail(
+    state.parsedJD!,
+    state.resume!,
+    state.resumeFull ?? state.resume ?? ""
+  );
 
   return {
     ...state,
