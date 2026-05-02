@@ -1,7 +1,10 @@
+import dns from "node:dns";
 import express from "express";
 import cors from "cors";
-import path from "path"; 
+import path from "path";
 import "dotenv/config";
+
+dns.setDefaultResultOrder("ipv4first");
 
 import { processJob } from "./services/jobService.js";
 import { upload } from "./middleware/upload.js";
